@@ -1,0 +1,25 @@
+
+<div class="panel panel-default">
+<div class="panel-heading"><h4 class="panel-title">Available Games: <small><a href="" ng-click="LoadGameList()">Refresh <i class="glyphicon glyphicon-refresh"></i> </a></small></h4></div>
+<div class="panel-body">
+<table class="table">
+<thead><tr><th width="50%">Name</th><th>Spieler</th><th>Round</th><th></th></tr></thead>
+<tbody>
+<tr ng-repeat="game in Games">
+<td><a href="" ng-click="join(game.id);">{{game.name}}</a></td>
+<td>{{game.count}}</td>
+<td>{{game.round == 0 ? "Lobby" : game.round+" / 19"}}</td>
+<td><a href="" ng-if="game.round == 0" ng-click="join(game.id);">Join</a></td>
+</tr>
+</tbody>
+</table> 
+
+</div>
+<div class="panel-footer">
+<form class="form-inline" ng-submit="create(gameName)">
+Create your own Game: 
+<input type="text" class="form-control input-sm" ng-model="gameName" placeholder="Game Name"/>
+<button type="submit" class="btn btn-sm btn-default">Create Game</button>
+</form>
+</div>
+</div>

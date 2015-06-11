@@ -1,0 +1,66 @@
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title pull-left">Game: {{GameName}} - Round {{Round}} - Points {{Points}}</h4>
+<div class="pull-right">
+	<button class="btn btn-sm btn-default" ng-click="leave()">Leave</button>
+</div>
+<div class="clearfix"></div>
+</div>
+
+<div class="panel-body">
+<div class="row" style="margin-right: 0">
+<div class="col-sm-8">
+	<div class="panel panel-default">
+	<div class="panel-heading">
+	<div class="pull-left" ng-if="!placeActive">
+		Waiting ...
+	</div>
+	<div class="pull-right">
+		<form class="form-inline" ng-submit="placePiece(in.x,in.y)">
+			<input type="text" class="form-control" ng-model="in.x" ng-init="in.x=null" tabindex="1" style="width: 40px" /> 
+			<input type="text" class="col-sm-2 form-control" ng-model="in.y" ng-init="in.y=null" tabindex="2" style="width: 40px" /> 
+			<button type="submit" class="btn btn-default" ng-disabled="!placeActive" tabindex="3">Place Piece at {{in.x}},{{in.y}}</button>
+		</form>
+	</div><div class="clearfix"></div>
+	</div>
+	<div class="panel-body">
+	<canvas id="gameField"></canvas>
+	</div>
+	</div>
+</div>
+<div class="col-sm-4">
+<div class="row">
+<div class="col-md-6">
+	<div class="panel panel-default">
+	<div class="panel-heading"><h4 class="panel-title">Next Piece</h4></div>
+	<div class="panel-body">
+		<canvas id="currentPiece" ></canvas>
+	</div>
+	</div>
+</div>
+<div class="col-md-6">
+	<div class="panel panel-default">
+	<div class="panel-heading"><h4 class="panel-title">Points</h4></div>
+	<div class="panel-body">
+		<span>{{Points}}</span>
+	</div>
+	</div>
+</div>
+<div class="col-md-12">
+	<div class="panel panel-default">
+	<div class="panel-heading"><h4 class="panel-title">Other Player</h4></div>
+	<table class="table">
+	<tr ng-repeat="ply in Player">
+		<td>{{ply.Name}}</td>
+		<td>{{ply.Points}}</td>
+		<td>{{ply.State == "1" ? "Ready" : "Thinking"}}</td>
+	</tr>
+	</table>
+	</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>

@@ -1,0 +1,20 @@
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title pull-left">Game Lobby: {{GameName}}</h4>
+<div class="pull-right">
+	<button class="btn btn-default" ng-if="Me.Id == Host" ng-click="start()">Start</button>
+	<button class="btn btn-default" ng-click="leave()">Leave</button>
+</div>
+<div class="clearfix"></div>
+</div>
+<ul class="list-group">
+<li class="list-group-item" ng-repeat="(id, ply) in Player">
+{{ply}} <small ng-if="id == Host" style="color: gray">Host</small>
+</li>
+</ul>
+<div class="panel-footer">
+<span ng-if="Me.Id != Host">Waiting for Host ...</span>
+</div>
+</div>
+</div>
